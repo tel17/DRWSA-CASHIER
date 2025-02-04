@@ -9,17 +9,15 @@ include("header.php");
 include("topbar.php");
 ?>
 
-<?php
-include("sidebar.php");
-?>
+
 
 <main id="main" class="main">
 
   <div class="pagetitle">
-    <h1>Member's Profile </h1>
+    <h1>Water Rate</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Member's Profile</a></li>
+        <li class="breadcrumb-item"><a href="index.html">Water Rate</a></li>
         <li class="breadcrumb-item active">Reports</li>
       </ol>
     </nav>
@@ -32,7 +30,7 @@ include("sidebar.php");
       <div class="col-12">
         <div class="card recent-sales overflow-auto">
           <div class="card-body">
-            <h5 class="card-title">Member's Profile <span>| Reports</span></h5>
+            <h5 class="card-title">Water Rate<span>| Reports</span></h5>
             <div style="display: flex; justify-content: space-between; align-items: center;">
               <div>
                 <button type="button" class="btn btn-light" id="printBtn" title="Print Table">PRINT</button>
@@ -40,48 +38,23 @@ include("sidebar.php");
                 <button type="button" class="btn btn-light" id="excelBtn" title="Download Excel">EXCEL</button>
               </div>
               <div>
-              <a href="add_members_profile.php" class="btn btn-success" title="Edit Information">
-                      <i class="bi bi-pencil-square"></i> 
-                    </a>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addDataModal"><i class="bi bi-plus"></i> Add Data</button>
               </div>
             </div>
             <table class="table table-borderless datatable" id="Customer_Manager_Report">
               <thead>
                 <tr>
                   <th scope="col" style="text-align: center;">#</th>
-                  <!-- <th scope="col" style="text-align: center;">CONSUMER STATUS</th>     -->
-                  <th scope="col" style="text-align: center;">ACCOUNT NUMBER</th>
-                  <th scope="col" style="text-align: center;">NAME</th>
-                  <th scope="col" style="text-align: center;">AREA</th>
-                  <th scope="col" style="text-align: center;">BLOCK</th>
-                  <th scope="col" style="text-align: center;">AGE</th>
-                  <th scope="col" style="text-align: center;">STATUS</th>
-                  <th scope="col" style="text-align: center;">GENDER</th>
-                  <th scope="col" style="text-align: center;">CONTACT</th>
-                  <th scope="col" style="text-align: center;">BIRTHPLACE</th>
-                  <th scope="col" style="text-align: center;">EDUCATIONAL ATTAINMENT</th>
-                  <th scope="col" style="text-align: center;">FAMILY MEMBER 1</th>
-                  <th scope="col" style="text-align: center;">FAMILY MEMBER 2</th>
-                  <th scope="col" style="text-align: center;">FAMILY MEMBER 3</th>
-                  <th scope="col" style="text-align: center;">INCOME</th>
-                  <th scope="col" style="text-align: center;">CEDULA</th>
-                  <th scope="col" style="text-align: center;">CLEARANCE</th>
-                  <th scope="col" style="text-align: center;">METER NUMBER</th>
-                  <th scope="col" style="text-align: center;">DATE FILED</th>
-                  <th scope="col" style="text-align: center;">BIRTHDAY</th>
-                  <th scope="col" style="text-align: center;">AMOUNT</th>
-                  <th scope="col" style="text-align: center;">MONTH</th>
-                  <th scope="col" style="text-align: center;">BENEFICIARY 1</th>
-                  <th scope="col" style="text-align: center;">BENEFICIARY 2</th>
-                  <th scope="col" style="text-align: center;">BENEFICIARY 3</th>
-                                             
+                  <th scope="col" style="text-align: center;">FULLNAME</th>
+                  <th scope="col" style="text-align: center;">USERNAME</th>
+                  <th scope="col" style="text-align: center;">PASSWORD</th>
                   <th scope="col" style="text-align: center;">Status</th>
                 </tr>
               </thead>
               <tbody>
                   <?php
                       // Query to fetch data from tbl_maintenance
-                      $query = "SELECT * FROM tbl_members_profile";
+                      $query = "SELECT * FROM tbl_collectors_profile";
                       $result = $con->query($query);
 
                       // Check if any rows are returned
@@ -90,32 +63,10 @@ include("sidebar.php");
                   ?>
                   <tr>
                       <td style="text-align: center;"><?php echo $row["id"]; ?></td>
-                      <!-- <td style="text-align: center;"><?php echo $row["consumer_status"]; ?></td> -->
-                      <td style="text-align: center;"><?php echo $row["account_number"]; ?></td>
-                      <td style="text-align: center;"><?php echo $row["name"]; ?></td>
-                      <td style="text-align: center;"><?php echo $row["area"]; ?></td>
-                      <td style="text-align: center;"><?php echo $row["block"]; ?></td>
-                      <td style="text-align: center;"><?php echo $row["age"]; ?></td>
-                      <td style="text-align: center;"><?php echo $row["status"]; ?></td>
-                      <td style="text-align: center;"><?php echo $row["gender"]; ?></td>
-                      <td style="text-align: center;"><?php echo $row["contact"]; ?></td>
-                      <td style="text-align: center;"><?php echo $row["birthplace"]; ?></td>
-                      <td style="text-align: center;"><?php echo $row["education_attainment"]; ?></td>
-                      <td style="text-align: center;"><?php echo $row["family_member_1"]; ?></td>
-                      <td style="text-align: center;"><?php echo $row["family_member_2"]; ?></td>
-                      <td style="text-align: center;"><?php echo $row["family_member_3"]; ?></td>
-                      <td style="text-align: center;"><?php echo $row["income"]; ?></td>
-                      <td style="text-align: center;"><?php echo $row["cedula"]; ?></td>
-                      <td style="text-align: center;"><?php echo $row["clearance"]; ?></td>
-                      <td style="text-align: center;"><?php echo $row["meter_number"]; ?></td>
-                      <td style="text-align: center;"><?php echo $row["date_filed"]; ?></td>
-                      <td style="text-align: center;"><?php echo $row["birthday"]; ?></td>
-                      <td style="text-align: center;"><?php echo $row["amount"]; ?></td>
-                      <td style="text-align: center;"><?php echo $row["month_for_data"]; ?></td>
-                      <td style="text-align: center;"><?php echo $row["beneficiary_1"]; ?></td>
-                      <td style="text-align: center;"><?php echo $row["beneficiary_2"]; ?></td>
-                      <td style="text-align: center;"><?php echo $row["beneficiary_3"]; ?></td>
-                      
+                      <td style="text-align: center;"><?php echo $row["fullname"]; ?></td>
+                      <td style="text-align: center;"><?php echo $row["username"]; ?></td>
+                      <td style="text-align: center;"><?php echo $row["password"]; ?></td>
+                     
                       <td>
                           <button type="button" class="btn btn-warning" title="Edit Information">
                               <i class="bi bi-pencil-square"></i> 
@@ -149,7 +100,43 @@ include("sidebar.php");
 include("footer.php");
 ?>
 
+<!-- Modal for Adding Data -->
+<div class="modal fade" id="addDataModal" tabindex="-1" aria-labelledby="addDataModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addDataModalLabel">Add Data</h5>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="add_collecters_profile.php" method="POST" id="addForm">
+          <div class="mb-3">
+            <label for="fullname" class="form-label">fullname</label>
+            <input type="text" class="form-control" id="fullname" name="fullname" required>
+          </div>
 
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" name="username" required>
+          </div>
+         
+         
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="text" class="form-control" id="password" name="password" required>
+          </div>
+          
+          <div style="float:right;">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-success">Submit</button>
+            
+            </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- jsPDF -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>

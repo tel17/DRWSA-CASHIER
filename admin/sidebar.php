@@ -9,26 +9,43 @@
       </a>
     </li><!-- End Dashboard Nav -->
 
-    <!-- <li class="nav-item">
-      <a class="nav-link collapsed" href="#">
-        <i class="bi bi-recycle"></i>
-        <span>Asset Disposal</span>
+     <li class="nav-item">
+      <a class="nav-link collapsed" href="water_rate_reports.php">
+        <i class="bi bi-moisture"></i>
+        <span>Water rate</span>
       </a>
-    </li> -->
+    </li> 
 
-    <!-- <li class="nav-item">
-      <a class="nav-link collapsed" href="#">
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="meter_replacement.php">
         <i class="bi bi-person"></i>
-        <span>Daily Transaction</span>
+        <span>Meter Replacement</span>
       </a>
-    </li> -->
+    </li>
 
-    <!-- <li class="nav-item">
-      <a class="nav-link collapsed" href="#">
+     <li class="nav-item">
+      <a class="nav-link collapsed" href="disconnected_reports.php">
         <i class="bi bi-lightning-charge"></i>
-        <span>Electric and Flow Meter Reading</span>
+        <span>Disconnected</span>
       </a>
-    </li> -->
+    </li> 
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="active_reports.php">
+        <i class="bi bi-graph-up-arrow"></i>
+        <span>Active</span>
+      </a>
+    </li> 
+
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="statement_of_account_reports.php">
+        <i class="bi bi-person-lines-fill"></i>
+        <span>Statement of Account</span>
+      </a>
+    </li> 
+
+
 
     <!-- <li class="nav-item">
       <a class="nav-link collapsed" data-bs-toggle="collapse" href="#materials-submenu" aria-expanded="false" aria-controls="materials-submenu">

@@ -25,56 +25,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $beneficiary_1 = $_POST['beneficiary_1'];
     $beneficiary_2 = $_POST['beneficiary_2'];
     $beneficiary_3 = $_POST['beneficiary_3'];
+    $consumer_status = $_POST['consumer_status'];  // Retrieve consumer status from the form
 
-    // Debugging Step: Check if data is received
-    // var_dump($_POST);
-    // exit();
+    // SQL Insert Query
+    $query = "INSERT INTO tbl_members_profile (
+        account_number, name, area, block, age, status, gender, contact, birthplace, 
+        education_attainment, family_member_1, income, cedula, clearance, meter_number, 
+        date_filed, birthday, amount, month_for_data, beneficiary_1, beneficiary_2, beneficiary_3, consumer_status
+    ) VALUES (
+        '$account_number', '$name', '$area', '$block', '$age', '$status', '$gender', '$contact', '$birthplace', 
+        '$education_attainment', '$family_member_1', '$income', '$cedula', '$clearance', '$meter_number', 
+        '$date_filed', '$birthday', '$amount', '$month_for_data', '$beneficiary_1', '$beneficiary_2', '$beneficiary_3', '$consumer_status'
+    )";
 
-    // SQL Insert Query (no prepared statement)
-   // SQL Insert Query
-   $query = "INSERT INTO tbl_members_profile (
-    account_number, name, area, block, age, status, gender, contact, birthplace, 
-    education_attainment, family_member_1, income, cedula, clearance, meter_number, 
-    date_filed, birthday, amount, month_for_data, beneficiary_1, beneficiary_2, beneficiary_3
-  ) VALUES (
-    '$account_number', '$name', '$area', '$block', '$age', '$status', '$gender', '$contact', '$birthplace', 
-    '$education_attainment', '$family_member_1', '$income', '$cedula', '$clearance', '$meter_number', 
-    '$date_filed', '$birthday', '$amount', '$month_for_data', '$beneficiary_1', '$beneficiary_2', '$beneficiary_3'
-  )";
-
-// Execute the query
-if (mysqli_query($con, $query)) {
-echo "<script>
-    Swal.fire({
-        title: 'Success!',
-        text: 'New record inserted successfully!',
-        icon: 'success',
-        confirmButtonText: 'OK'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            window.location.href = 'members_profile_reports.php';
-        }
-    });
-  </script>";
-} else {
-echo "<script>
-    Swal.fire({
-        title: 'Error!',
-        text: 'Error inserting record: " . mysqli_error($con) . "',
-        icon: 'error',
-        confirmButtonText: 'OK'
-    });
-  </script>";
-}
-
-
+    // Execute the query
+    if ($con->query($query) === TRUE) {
+        // If the query is successful
+        $message = "Data Added Successfully!";
+        $alert_type = "success";
+    } else {
+        // If there's an error in the query
+        $message = "Error: " . $con->error;
+        $alert_type = "error";
+    }
 }
 ?>
+
 <?php include("topbar.php"); ?>
 <?php include("sidebar.php"); ?>
 
 <main id="main" class="main">
-
     <div class="pagetitle">
         <h1>Add Members Profile</h1>
         <nav>
@@ -85,7 +65,6 @@ echo "<script>
             </ol>
         </nav>
     </div><!-- End Page Title -->
-
     <section class="section dashboard">
         <div class="row">
             <!-- Start of Left side columns -->
@@ -235,9 +214,19 @@ echo "<script>
                                         <label for="beneficiary_3" class="form-label">Beneficiary 3</label>
                                         <input type="text" class="form-control" id="beneficiary_3" name="beneficiary_3">
                                     </div>
+<!--                                     
+                                    <div class="col-lg-4 mb-3">
+                                    <label for="consumer_status" class="form-label">Status:</label>
+                                    <select id="status" name="consumer_status" class="form-control">
+                                        <option value="0">Select Status</option>
+                                        <option value="DISCONNECTED">DISCONNECTED</option>
+                                        <option value="ACTIVE">ACTIVE</option>
+                                    </select>
+                                    </div> -->
+
                                 </div>
                             </div>
-
+                           
                                 
                                     <div style="float:right;">
                                     <button type="button" class="btn btn-secondary" onclick="window.history.back();">Close</button>
@@ -254,15 +243,29 @@ echo "<script>
             <!-- End Left side columns -->
         </div>
     </section>
-
 </main><!-- End #main -->
 
 <?php include("footer.php"); ?>
 
-</body>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
-   
-</script>
+    // Trigger SweetAlert after form submission
+    document.getElementById('addForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission to show SweetAlert first
 
+        // Show SweetAlert based on success or error message
+        Swal.fire({
+            title: '<?php echo $message; ?>',
+            icon: '<?php echo $alert_type; ?>',
+            confirmButtonText: 'OK'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Submit the form after closing the SweetAlert
+                this.submit();
+            }
+        });
+    });
+</script>
+</body>
+</html>

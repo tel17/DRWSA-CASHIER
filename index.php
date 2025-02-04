@@ -112,7 +112,7 @@ include("header.php");
             <button class="btn btn-primary" onclick="window.location.href='summary-of-reading.html'">SUMMARY OF READING</button>
             <button class="btn btn-primary" onclick="window.location.href='account.php'">ACCOUNT</button>
             <button class="btn btn-primary" data-toggle="modal" data-target="#readingEntryModal">READING</button>
-            <button class="btn btn-primary" onclick="window.location.href='members_profile.php'">MEMBER'S PROFILE</button>
+            <!-- <button class="btn btn-primary" onclick="window.location.href='members_profile.php'">MEMBER'S PROFILE</button> -->
             <button class="btn btn-primary" onclick="window.location.href='official-receipt.html'">OFFICIAL RECEIPT</button>
             <button class="btn btn-danger" onclick="window.location.href='daily-collection-report.html'">DAILY COLLECTION REPORT</button>
         </div>
@@ -121,12 +121,12 @@ include("header.php");
         <div class="container secondary-buttons">
             <button class="btn btn-primary" onclick="window.location.href='water-rate.html'">WATER RATE</button>
             <button class="btn btn-primary" onclick="window.location.href='summary-nrdm.html'">SUMMARY NRDM</button>
-            <button class="btn btn-primary" data-toggle="modal" data-target="#consumerModal">
+            <!-- <button class="btn btn-primary" data-toggle="modal" data-target="#consumerModal">
                                                                                                     STATEMENT OF ACCOUNT
-                                                                                                </button>
-            <button class="btn btn-primary" onclick="window.location.href='disconnected.html'">DISCONNECTED</button>
-            <button class="btn btn-primary" onclick="window.location.href='reconnected.html'">RECONNECTED</button>
-            <button class="btn btn-primary" onclick="window.location.href='meter-replacement.html'">METER REPLACEMENT</button>
+                                                                                                </button> -->
+            <button class="btn btn-primary" onclick="window.location.href='disconnected.php'">DISCONNECTED</button>
+            <button class="btn btn-primary" onclick="window.location.href='active.php'">ACTIVE</button>
+            <!-- <button class="btn btn-primary" onclick="window.location.href='meter-replacement.html'">METER REPLACEMENT</button> -->
         </div>
         <br>
     </div>

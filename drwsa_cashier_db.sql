@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 31, 2025 at 04:40 AM
+-- Generation Time: Feb 04, 2025 at 08:14 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -52,174 +52,160 @@ INSERT INTO `admin_db` (`id`, `account_id`, `email`, `password`, `firstname`, `l
 -- --------------------------------------------------------
 
 --
--- Table structure for table `conamount`
+-- Table structure for table `tbl_active`
 --
 
-CREATE TABLE `conamount` (
+CREATE TABLE `tbl_active` (
   `id` int(11) NOT NULL,
-  `accntNum` varchar(100) NOT NULL,
-  `accntName` varchar(100) NOT NULL,
-  `jan` varchar(100) NOT NULL,
-  `feb` varchar(100) NOT NULL,
-  `mar` varchar(100) NOT NULL,
-  `apr` varchar(100) NOT NULL,
-  `may` varchar(100) NOT NULL,
-  `jun` varchar(100) NOT NULL,
-  `jul` varchar(100) NOT NULL,
-  `aug` varchar(100) NOT NULL,
-  `sep` varchar(100) NOT NULL,
-  `oct` varchar(100) NOT NULL,
-  `nov` varchar(100) NOT NULL,
-  `dec` varchar(100) NOT NULL
+  `account_number_active` int(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `consumer_status_active` varchar(255) NOT NULL,
+  `area` varchar(255) NOT NULL,
+  `blk_lot` varchar(255) NOT NULL,
+  `reading` varchar(255) NOT NULL,
+  `date_reconnected` date NOT NULL,
+  `billing_month` varchar(50) NOT NULL,
+  `maintenance` varchar(255) NOT NULL,
+  `remarks` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `conamount`
+-- Dumping data for table `tbl_active`
 --
 
-INSERT INTO `conamount` (`id`, `accntNum`, `accntName`, `jan`, `feb`, `mar`, `apr`, `may`, `jun`, `jul`, `aug`, `sep`, `oct`, `nov`, `dec`) VALUES
-(1, '2015-0928143730', 'Edgar Oquialda', '1257', '1049', '971', '1127', '1712', '854', '1010', '1088', '1127', '1127', '1302.50', '1394.50'),
-(2, '2015-0928143731', 'Oliver Lizardo', '1252', '104', '1000', '1354', '999', '1000', '2089', '1081', '1123', '1112', '1288', '1176');
+INSERT INTO `tbl_active` (`id`, `account_number_active`, `name`, `consumer_status_active`, `area`, `blk_lot`, `reading`, `date_reconnected`, `billing_month`, `maintenance`, `remarks`) VALUES
+(1, 12345, 'asd', 'asd', 'area ', 'qew2', 'qwe', '2025-02-04', 'march', 'sdf', 'sdf'),
+(2, 9999, 'TESTING LANG', 'DISCONNECTED', 'SILANGAN', 'q12', '13456', '2025-02-05', '2025-03-01', 'john doe', 'asd'),
+(3, 1324655, 'Ryan oliver', 'ACTIVE', 'silangan', '2 ', '13456', '2025-02-05', '2025-03-01', 'john doe', 'asd'),
+(4, 1324655, 'Ryan oliver', 'ACTIVE', 'silangan', '2 ', '13456', '2025-02-05', '2025-03-01', 'john doe', 'asd');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `condate`
+-- Table structure for table `tbl_collectors_profile`
 --
 
-CREATE TABLE `condate` (
+CREATE TABLE `tbl_collectors_profile` (
   `id` int(11) NOT NULL,
-  `accntNum` varchar(100) NOT NULL,
-  `accntName` varchar(100) NOT NULL,
-  `jan` date NOT NULL,
-  `feb` date NOT NULL,
-  `mar` date NOT NULL,
-  `apr` date NOT NULL,
-  `may` date NOT NULL,
-  `jun` date NOT NULL,
-  `jul` date NOT NULL,
-  `aug` date NOT NULL,
-  `sep` date NOT NULL,
-  `oct` date NOT NULL,
-  `nov` date NOT NULL,
-  `dec` date NOT NULL
+  `fullname` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `condate`
+-- Dumping data for table `tbl_collectors_profile`
 --
 
-INSERT INTO `condate` (`id`, `accntNum`, `accntName`, `jan`, `feb`, `mar`, `apr`, `may`, `jun`, `jul`, `aug`, `sep`, `oct`, `nov`, `dec`) VALUES
-(1, '2015-0928143730', 'Edgar Oquialdo', '2024-01-30', '2024-02-26', '2025-04-05', '2024-05-02', '2024-06-03', '2024-07-04', '2024-08-10', '2024-09-06', '2024-10-07', '2024-11-05', '2024-12-09', '2025-01-03'),
-(2, '2015-0928143731', 'Oliver Lizardo', '2024-01-30', '2024-02-26', '2025-04-05', '2024-05-02', '2024-06-03', '2024-07-04', '2024-08-10', '2024-09-06', '2024-10-07', '2024-11-05', '2024-12-09', '2025-01-03');
+INSERT INTO `tbl_collectors_profile` (`id`, `fullname`, `username`, `password`) VALUES
+(1, 'ryan oliver', 'ryansgeh', 'rehsuyrg3'),
+(2, 'asd', 'asd', 'asd'),
+(3, 'yuo', 'uois', 'jklj'),
+(4, '', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `consumer_name`
+-- Table structure for table `tbl_disconnected`
 --
 
-CREATE TABLE `consumer_name` (
+CREATE TABLE `tbl_disconnected` (
   `id` int(11) NOT NULL,
-  `accntNum` varchar(100) NOT NULL,
-  `accntName` varchar(100) NOT NULL,
-  `area` varchar(100) NOT NULL,
-  `blk` varchar(100) NOT NULL,
-  `sc` varchar(100) NOT NULL,
-  `remarks` varchar(100) NOT NULL,
-  `year` year(4) NOT NULL
+  `account_number_disconnected` int(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `consumer_status_disconnected` varchar(255) NOT NULL,
+  `area` varchar(255) NOT NULL,
+  `blk_lot` varchar(255) NOT NULL,
+  `reading` varchar(255) NOT NULL,
+  `date_disconnected` date NOT NULL,
+  `billing_month` varchar(50) NOT NULL,
+  `disconnector` varchar(255) NOT NULL,
+  `remarks` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `consumer_name`
+-- Dumping data for table `tbl_disconnected`
 --
 
-INSERT INTO `consumer_name` (`id`, `accntNum`, `accntName`, `area`, `blk`, `sc`, `remarks`, `year`) VALUES
-(1, '2015-0928143730', 'Edgar Oquialda', 'Kanluran', '', '', '', '2024'),
-(2, '2015-0928143731', 'Oliver Lizardo', 'Ecoverde', '', '', '', '2024');
+INSERT INTO `tbl_disconnected` (`id`, `account_number_disconnected`, `name`, `consumer_status_disconnected`, `area`, `blk_lot`, `reading`, `date_disconnected`, `billing_month`, `disconnector`, `remarks`) VALUES
+(1, 123456, 'asd', 'asd', 'qwe', 'wer', 'wer', '2025-02-04', '2025-02', 'asd', 'fsdf'),
+(2, 234, 'random', 'DISCONNECTED', 'SILANGAN', 'q12', '13456', '2025-02-04', '0000-00', 'jhai', 'sample'),
+(3, 9999, 'TESTING LANG', 'DISCONNECTED', 'SILANGAN', 'q12', '13456', '2025-02-05', '0000-00', 'jhai', 'asd'),
+(4, 1324655, 'Ryan oliver', 'ACTIVE', 'silangan', '2 ', '13456', '2025-02-05', '0000-00', 'jhai', 'asd'),
+(5, 234, 'random', 'DISCONNECTED', 'SILANGAN', 'q12', '13456', '2025-02-05', '2025-03', 'jhai', 'asd'),
+(6, 234, 'random', 'DISCONNECTED', 'SILANGAN', 'q12', '13456', '2025-02-05', '2025-03', 'ryan', 'eeeeeeeeeeeeeeeeeeee'),
+(7, 1324655, 'Ryan oliver', 'ACTIVE', 'silangan', '2 ', '13456', '2025-02-04', '2025-02', 'jhai', 'asd');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `months`
+-- Table structure for table `tbl_members_profile`
 --
 
-CREATE TABLE `months` (
-  `month` varchar(12) NOT NULL
+CREATE TABLE `tbl_members_profile` (
+  `id` int(11) NOT NULL,
+  `account_number` int(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `area` varchar(255) NOT NULL,
+  `block` varchar(255) NOT NULL,
+  `age` int(100) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `gender` varchar(255) NOT NULL,
+  `contact` int(255) NOT NULL,
+  `birthplace` varchar(255) NOT NULL,
+  `education_attainment` varchar(255) NOT NULL,
+  `family_member_1` varchar(255) NOT NULL,
+  `family_member_2` varchar(255) NOT NULL,
+  `family_member_3` varchar(255) NOT NULL,
+  `income` varchar(255) NOT NULL,
+  `cedula` varchar(255) NOT NULL,
+  `clearance` varchar(255) NOT NULL,
+  `meter_number` int(255) NOT NULL,
+  `date_filed` date NOT NULL,
+  `birthday` date NOT NULL,
+  `amount` int(255) NOT NULL,
+  `month_for_data` varchar(255) NOT NULL,
+  `beneficiary_1` varchar(255) NOT NULL,
+  `beneficiary_2` varchar(255) NOT NULL,
+  `beneficiary_3` varchar(255) NOT NULL,
+  `consumer_status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `months`
+-- Dumping data for table `tbl_members_profile`
 --
 
-INSERT INTO `months` (`month`) VALUES
-('jan'),
-('feb'),
-('mar'),
-('apr'),
-('may'),
-('jun'),
-('jul'),
-('aug'),
-('sep'),
-('oct'),
-('nov'),
-('dec');
+INSERT INTO `tbl_members_profile` (`id`, `account_number`, `name`, `area`, `block`, `age`, `status`, `gender`, `contact`, `birthplace`, `education_attainment`, `family_member_1`, `family_member_2`, `family_member_3`, `income`, `cedula`, `clearance`, `meter_number`, `date_filed`, `birthday`, `amount`, `month_for_data`, `beneficiary_1`, `beneficiary_2`, `beneficiary_3`, `consumer_status`) VALUES
+(25, 1324655, 'Ryan oliver', 'silangan', '2 ', 12, 'married', 'male', 90746465, 'cale', 'asdffg', 'asd', '', '', '123', 'qwe', 'we', 1232, '2025-02-03', '2025-02-03', 213, 'jan', 'qwe', 'qwe', 'qwe', 'ACTIVE'),
+(26, 9999, 'TESTING LANG', 'SILANGAN', 'q12', 323, 'asd', 'male', 2147483647, 'qe', 'hj', 'qwe', '', '', '123', 'qwe', 'wre', 1232, '2025-02-03', '2025-02-03', 123, 'jan', 'qwe', 'qwe', 'qwe', 'ACTIVE'),
+(27, 234, 'random', 'SILANGAN', 'q12', 323, 'DISCONNECTED', 'male', 2147483647, 'qe', 'hj', 'qwe', '', '', '123', 'qwe', 'wre', 1232, '2025-02-04', '2025-02-04', 12, 'jan', 'qwe', 'qwe', 'qwe', 'DISCONNECTED'),
+(28, 9999, 'TESTING LANG', 'SILANGAN', 'q12', 323, 'asd', 'male', 2147483647, 'qe', 'hj', 'qwe', '', '', '123', 'qwe', 'wre', 1232, '2025-02-03', '2025-02-03', 123, 'jan', 'qwe', 'qwe', 'qwe', 'DISCONNECTED');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ordata`
+-- Table structure for table `tbl_meter_replacement`
 --
 
-CREATE TABLE `ordata` (
+CREATE TABLE `tbl_meter_replacement` (
   `id` int(11) NOT NULL,
-  `accntNum` varchar(100) NOT NULL,
-  `accntName` varchar(100) NOT NULL,
-  `jan` varchar(100) NOT NULL,
-  `feb` varchar(100) NOT NULL,
-  `mar` varchar(100) NOT NULL,
-  `apr` varchar(100) NOT NULL,
-  `may` varchar(100) NOT NULL,
-  `jun` varchar(100) NOT NULL,
-  `jul` varchar(100) NOT NULL,
-  `aug` varchar(100) NOT NULL,
-  `sep` varchar(100) NOT NULL,
-  `oct` varchar(100) NOT NULL,
-  `nov` varchar(100) NOT NULL,
-  `dec` varchar(100) NOT NULL
+  `name` varchar(255) NOT NULL,
+  `area` varchar(255) NOT NULL,
+  `block_lot` varchar(255) NOT NULL,
+  `old_reading` varchar(255) NOT NULL,
+  `new_reading` varchar(255) NOT NULL,
+  `serial_number` varchar(255) NOT NULL,
+  `date_filed` date NOT NULL,
+  `year` int(255) NOT NULL,
+  `remarks` varchar(255) NOT NULL,
+  `mid` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `ordata`
+-- Dumping data for table `tbl_meter_replacement`
 --
 
-INSERT INTO `ordata` (`id`, `accntNum`, `accntName`, `jan`, `feb`, `mar`, `apr`, `may`, `jun`, `jul`, `aug`, `sep`, `oct`, `nov`, `dec`) VALUES
-(1, '2015-0928143730', 'Edgar Oquialda', '785138', '791473', '798112', '802487', '808891', '815102', '822160', '826702', '832259', '837156', '0003186', '0007822'),
-(2, '2015-0928143731', 'Oliver Lizardo', '785138', '791473', '798112', '802487', '808891', '815102', '822160', '826702', '832259', '837156', '0003186', '0007822');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `posts`
---
-
-CREATE TABLE `posts` (
-  `id` int(11) NOT NULL,
-  `user_id` varchar(100) NOT NULL,
-  `message` varchar(1000) NOT NULL,
-  `image_url` varchar(100) NOT NULL,
-  `date_created` date NOT NULL,
-  `likes` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `posts`
---
-
-INSERT INTO `posts` (`id`, `user_id`, `message`, `image_url`, `date_created`, `likes`) VALUES
-(1, '490089220241009', 'sample', 'ads.PNG', '2024-10-09', 9),
-(2, '285524520241009', 'my day with my doggie!', 'dog.PNG', '2024-09-26', 2);
+INSERT INTO `tbl_meter_replacement` (`id`, `name`, `area`, `block_lot`, `old_reading`, `new_reading`, `serial_number`, `date_filed`, `year`, `remarks`, `mid`) VALUES
+(1, 'TESTING LANG', 'SILANGAN', 'asd', '12345', '4124', '123465', '2025-02-03', 2025, 'asd', 213);
 
 -- --------------------------------------------------------
 
@@ -261,33 +247,33 @@ ALTER TABLE `admin_db`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `conamount`
+-- Indexes for table `tbl_active`
 --
-ALTER TABLE `conamount`
+ALTER TABLE `tbl_active`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `condate`
+-- Indexes for table `tbl_collectors_profile`
 --
-ALTER TABLE `condate`
+ALTER TABLE `tbl_collectors_profile`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `consumer_name`
+-- Indexes for table `tbl_disconnected`
 --
-ALTER TABLE `consumer_name`
+ALTER TABLE `tbl_disconnected`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ordata`
+-- Indexes for table `tbl_members_profile`
 --
-ALTER TABLE `ordata`
+ALTER TABLE `tbl_members_profile`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `posts`
+-- Indexes for table `tbl_meter_replacement`
 --
-ALTER TABLE `posts`
+ALTER TABLE `tbl_meter_replacement`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -305,6 +291,36 @@ ALTER TABLE `user_db`
 --
 ALTER TABLE `admin_db`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `tbl_active`
+--
+ALTER TABLE `tbl_active`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tbl_collectors_profile`
+--
+ALTER TABLE `tbl_collectors_profile`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tbl_disconnected`
+--
+ALTER TABLE `tbl_disconnected`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `tbl_members_profile`
+--
+ALTER TABLE `tbl_members_profile`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT for table `tbl_meter_replacement`
+--
+ALTER TABLE `tbl_meter_replacement`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user_db`
