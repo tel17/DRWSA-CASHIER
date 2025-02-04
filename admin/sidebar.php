@@ -38,12 +38,18 @@
     </li> 
 
 
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a class="nav-link collapsed" href="statement_of_account_reports.php">
         <i class="bi bi-person-lines-fill"></i>
         <span>Statement of Account</span>
       </a>
-    </li> 
+    </li>  -->
+    <li class="nav-item">
+    <a class="nav-link collapsed" href="statement_of_account_reports.php" target="_blank">
+        <i class="bi bi-person-lines-fill"></i>
+        <span>Statement of Account</span>
+    </a>
+</li>
 
 
 

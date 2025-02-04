@@ -49,7 +49,7 @@ include("sidebar.php");
               <thead>
                 <tr>
                   <th scope="col" style="text-align: center;">#</th>
-                  <!-- <th scope="col" style="text-align: center;">CONSUMER STATUS</th>     -->
+                  <th scope="col" style="text-align: center;">CONSUMER STATUS</th>    
                   <th scope="col" style="text-align: center;">ACCOUNT NUMBER</th>
                   <th scope="col" style="text-align: center;">NAME</th>
                   <th scope="col" style="text-align: center;">AREA</th>
@@ -90,7 +90,7 @@ include("sidebar.php");
                   ?>
                   <tr>
                       <td style="text-align: center;"><?php echo $row["id"]; ?></td>
-                      <!-- <td style="text-align: center;"><?php echo $row["consumer_status"]; ?></td> -->
+                      <td style="text-align: center;"><?php echo $row["consumer_status"]; ?></td>
                       <td style="text-align: center;"><?php echo $row["account_number"]; ?></td>
                       <td style="text-align: center;"><?php echo $row["name"]; ?></td>
                       <td style="text-align: center;"><?php echo $row["area"]; ?></td>
